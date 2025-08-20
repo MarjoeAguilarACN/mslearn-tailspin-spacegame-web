@@ -1,6 +1,14 @@
-pool: MyAgentPool
+pool:
+  vmImage: 'windows-latest'
+
+steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-steps:
+
 - bash: echo hello world
+
+- task: DotNetCoreCLI@2
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise Subscription(b234d65e-ab90-41c1-93b7-dd2421c89240)'
+    command: 'build'
